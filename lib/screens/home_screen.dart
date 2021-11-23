@@ -1,26 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:test_flutter/screens/list_screen.dart';
 
-const List<Map<String, dynamic>> userList = [
-  {
-    "name": "John",
-    "age": 18,
-    "status": "Je mange des devs tous les matin",
-  },
-  {
-    "name": "Jane",
-    "age": 32,
-    "status": "J'arrose les cailloux",
-  },
-  {
-    "name": "Bob",
-    "age": 190,
-    "status": "Dit l'ane",
-  }
-];
-
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  final List<Map<String, dynamic>> users;
+
+  const HomeScreen({
+    Key? key,
+    required this.users,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -67,8 +54,8 @@ class HomeScreen extends StatelessWidget {
                   onPressed: () => Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const ListScreen(
-                        users: userList,
+                      builder: (context) => ListScreen(
+                        users: users,
                       ),
                     ),
                     // (route) => false,

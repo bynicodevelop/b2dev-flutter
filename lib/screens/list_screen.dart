@@ -14,7 +14,10 @@ class ListScreen extends StatelessWidget {
         builder: (context) => SizedBox(
           height: 200,
           child: Center(
-            child: Text(user["name"]),
+            child: Column(
+              children:
+                  user.entries.map((e) => Text(e.value.toString())).toList(),
+            ),
           ),
         ),
       );
